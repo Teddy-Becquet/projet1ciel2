@@ -1,0 +1,87 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0033A0, #D71A28); /* Dégradé Bleu & Rouge OL */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.login-container {
+    background: rgba(0, 0, 50, 0.9); /* Bleu foncé semi-transparent */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 320px;
+    border: 2px solid #DAA520; /* Bordure dorée inspirée du logo OL */
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #DAA520; /* Doré */
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    margin: 10px 0 5px;
+    color: #DAA520;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #DAA520;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background: #001A50; /* Bleu très foncé */
+    color: white;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #D71A28; /* Rouge OL */
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #A01620; /* Rouge foncé */
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #DAA520;
+}
+
+.register-link a {
+    color: #DAA520;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
