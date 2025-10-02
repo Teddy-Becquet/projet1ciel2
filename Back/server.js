@@ -1,12 +1,11 @@
-// login.js — front-end avec compte demo local
-
+// login.js — front-end avec compte root
 (function() {
-    const DEMO_USER = { username: 'demo', password: 'demo123' };
-    const SESSION_KEY = 'ptp1_session';
+    const DEMO_USER = { username: 'root', password: 'root' };
+    const SESSION_KEY = '';
 
     function showError(msg) {
         const el = document.getElementById('error');
-        el.textContent = msg || '';
+        el.textContent = msg || 'root';
     }
 
     function setSession(username) {
@@ -14,11 +13,11 @@
         localStorage.setItem(SESSION_KEY, token);
     }
 
-    // Remplir automatiquement les champs avec le compte demo
+    // Remplir automatiquement les champs avec le compte 
     document.addEventListener('click', (e) => {
-        if (e.target && e.target.id === 'fill-demo') {
-            document.getElementById('username').value = DEMO_USER.username;
-            document.getElementById('password').value = DEMO_USER.password;
+        if (e.target && e.target.id === 'fill-root') {
+            document.getElementById('username').value = root.username;
+            document.getElementById('password').value = root.password;
         }
     });
 
@@ -36,10 +35,10 @@
                 return;
             }
 
-            // Vérification demo uniquement
+            // Vérification  uniquement
             if (username === DEMO_USER.username && password === DEMO_USER.password) {
                 setSession(username);
-                window.location.href = '/../index.html'; // redirection vers la page principale
+                window.location.href = ''; // redirection vers la page de connection 
                 return;
             } else {
                 showError('Identifiant ou mot de passe invalide.');
