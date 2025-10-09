@@ -12,9 +12,9 @@ app.use(bodyParser.json());// pour parser les requetes en json
 app.use(cors());// pour autoriser les requetes cross-origin
 
 // Connexion à la base de données MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Could not connect to MongoDB...', err));
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })// connexion a la BDD
+    .then(() => console.log('Connected to MongoDB'))// message de confirmation
+    .catch(err => console.error('Could not connect to MongoDB...', err));// message de confirmation ou d'erreur
 
 // Routes
 app.get('/', (req, res) => {
@@ -26,4 +26,6 @@ app.listen(port, () => {
 });
 // Exporter l'application pour les teste
 module.exports = app;
+
+//teste 
 
