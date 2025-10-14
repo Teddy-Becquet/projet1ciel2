@@ -23,12 +23,12 @@
 
     // Gestion du formulaire de connexion
     document.addEventListener('submit', (e) => {
-        if (e.target && e.target.id === 'login-form') {
+        if (e.target && e.target.id === 'login-form') { 
             e.preventDefault();
             showError('');
 
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value.trim();// recupere la valeur du champ username
+            const password = document.getElementById('password').value;// recupere la valeur du champ password
 
             if (!username || !password) {
                 showError('Veuillez remplir tous les champs.');

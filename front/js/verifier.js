@@ -1,7 +1,7 @@
 //vérifier la connection a la base de donnée
 // verifier.js — front-end vérification base de donnée
 (function() {
-    const DB_USER = { username: 'root', password: 'root' }; // Exemple de compte admin
+    const DB_USER = { username: 'root', password: 'root' }; // Exemple compte admin
     const SESSION
     = 'session_token';
     function showError(msg) {
