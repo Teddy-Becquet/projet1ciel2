@@ -1,14 +1,14 @@
 // login.js — front-end avec compte root
 (function() {
     const DEMO_USER = { username: 'root', password: 'root' };
-    const SESSION_KEY = '';
+    const SESSION_KEY = 'root_session';
 
     function showError(msg) {
         const el = document.getElementById('error');
         el.textContent = msg || 'root';
     }
 
-    function setSession(username) {
+    function setSession(username){
         const token = btoa(JSON.stringify({ user: username, iat: Date.now() }));
         localStorage.setItem(SESSION_KEY, token);
     }
