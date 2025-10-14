@@ -16,8 +16,8 @@
     // Remplir automatiquement les champs avec le compte 
     document.addEventListener('click', (e) => {
         if (e.target && e.target.id === 'fill-root') {
-            document.getElementById('username').value = root.username;
-            document.getElementById('password').value = root.password;
+            document.getElementById('username').value = root;
+            document.getElementById('password').value = root;
         }
     });
 
@@ -46,3 +46,31 @@
         }
     });
 })();
+// Pour tester la connection a la bdd : http://172.29.18.254/phpmyadmin/
+fetch('http://172.29.18.254/phpmyadmin/')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+//tester que le serveur fonctionne
+fetch('http://172.29.18.254/Pojet1ciel2/back/server.js')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+
+//tester la route de la page de connection
+fetch('http://172.29.18.254/Pojet1ciel2/front/html/index.html')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+
+//tester la route de la page de creation de compte
+fetch('http://172.29.18.254/Pojet1ciel2/front/html/creation.html')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+
+//tester node server.js
+fetch('http://172.29.18.254/Pojet1ciel2/back/server.js')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));

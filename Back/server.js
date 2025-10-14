@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Serveur démarré sur le port ${8080}`);
 })
-// Pour tester la connection au serveur : http://172.29.18.254/phpmyadmin/
+// Pour tester la connection a la bdd : http://172.29.18.254/phpmyadmin/
 fetch('http://172.29.18.254/phpmyadmin/')
     .then(response => response.text())
     .then(data => console.log(data))
@@ -34,7 +34,43 @@ fetch('http://172.29.18.254/phpmyadmin/')
 
 //tester la route de la bdd
 app.get('/test-db', (req, res) => {
-    res.send('Test de la route de la base de données');
+    res.send('Test de la route de la base de données'); 
+});
+//tester que le serveur fonctionne
+app.get('/test-server', (req, res) => {
+    res.send('Test de la route du serveur');
 });
 
-//
+// Pour tester la connection au serveur : http://172.29.18.254/Pojet1ciel2/back/server.js
+fetch('http://172.29.18.254/Pojet1ciel2/back/server.js')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+
+// tester la route de la page de connection
+app.get('/login', (req, res) => {
+    res.send('Test de la route de la page de connection');
+});
+
+// Pour tester la route de la page de connection : http://172.29.18.254/Pojet1ciel2/front/html/creation.html
+fetch('http://172.29.18.254/Pojet1ciel2/front/html/creation.html')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+
+    //tester la route de la page de creation de compte
+app.get('/creation', (req, res) => {
+    res.send('Test de la route de la page de creation de compte');
+});
+
+// Pour tester la route de la page de creation de compte : http://172.29.18.254/Pojet1ciel2/front/html/index.html
+fetch('http://172.29.18.254/Pojet1ciel2/front/html/index.html')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+
+//tester node server.js
+fetch('http://172.29.18.254/Pojet1ciel2/front/html/index.html')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
