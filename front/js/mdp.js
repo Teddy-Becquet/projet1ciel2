@@ -1,68 +1,27 @@
-//vérifier le mots de passe soit le meme dans les deux champs
+//vérifier le mots de passe soit le meme dans les deux champs de la page de creation de compte
 // mdp.js — front-end vérification mot de passe
 (function() {
-    const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('confirm-password');
-    const errorMsg = document.getElementById('error-msg');
+    const passwordInput = document.getElementById('password');// recupere la valeur du champ password
+    const confirmPasswordInput = document.getElementById('confirm-password');// recupere la valeur du champ confirm-password
+    const errorDiv = document.getElementById('error');// recupere la valeur du champ error
 
     function validatePasswords() {
-        if (password.value !== confirmPassword.value) {
-            errorMsg.textContent = 'Les mots de passe ne correspondent pas.';
-            return false;
-        } else {
-            errorMsg.textContent = '';
-            return true;
+        if (passwordInput.value !== confirmPasswordInput.value) {// compare les deux champs
+            errorDiv.textContent = 'Les mots de passe ne correspondent pas.';// message d'erreur si les deux champs sont different
+            return false;// retourne false si les deux champs sont different
         }
+        errorDiv.textContent = '';// vide le message d'erreur si les deux champs sont identiques
+        return true;// retourne true si les deux champs sont identiques
     }
 
-    password.addEventListener('input', validatePasswords);
-    confirmPassword.addEventListener('input', validatePasswords);
-})();
-// login.js — front-end avec compte root
-(function() {
-    const DEMO_USER = { username: 'root', password: 'root' };
-    const SESSION_KEY = '';
-    
-    function showError(msg) {
-        const el = document.getElementById('error');
-        el.textContent = msg || 'root';
-    }
-    
-    function setSession(username) {
-        const token = btoa(JSON.stringify({ user: username, iat: Date.now() }));
-        localStorage.setItem(SESSION_KEY, token);
-    }
-    
-    // Remplir automatiquement les champs avec le compte 
-    document.addEventListener('click', (e) => {
-        if (e.target && e.target.id === 'fill-root') {
-            document.getElementById('username').value = root.username;
-            document.getElementById('password').value = root.password;
-        }
-    });
-    
-    // Gestion du formulaire de connexion
-    document.addEventListener('submit', (e) => {
-        if (e.target && e.target.id === 'login-form') {
-            e.preventDefault();
-            showError('');
-    
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
-    
-            if (!username || !password) {
-                showError('Veuillez remplir tous les champs.');
-                return;
-            }
-    
-            // Vérification  uniquement
-            if (username === DEMO_USER.username && password === DEMO_USER.password) {
-                setSession(username);
-               window.location.href = "http://http://172.29.18.254/projet1ciel2/front/html/page.html"; // redirection vers la page de connection
-                return;
-            } else {
-                showError('Identifiant ou mot de passe invalide.');
-            }
+    passwordInput.addEventListener('input', validatePasswords);// ecoute les changements dans le champ password
+    confirmPasswordInput.addEventListener('input', validatePasswords);// ecoute les changements dans le champ confirm-password
+
+    // Validation finale lors de la soumission du formulaire
+
+    document.getElementById('creation-form').addEventListener('submit', function(e) {// ecoute la soumission du formulaire
+        if (!validatePasswords()) {// si les deux champs sont different
+            e.preventDefault();// empêche la soumission du formulaire si les deux champs sont different
         }
     });
 })();

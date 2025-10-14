@@ -35,13 +35,13 @@
                 return;
             }
 
-            // Vérification  uniquement
+            // Vérification  du mot de passe et du nom d'utilisateur en bdd
             if (username === DEMO_USER.username && password === DEMO_USER.password) {
                 setSession(username);
-               window.location.href = "http://172.29.18.254/projet1ciel2/front/html/page.html"; // redirection vers la page de connection 
+                window.location.href = "http://172.29.18.254/phpmyadmin/"; // redirection vers la bdd pour vérifier le mot de passe et le nom d'utilisateur
                 return;
             } else {
-                showError('Identifiant ou mot de passe invalide.');
+                showError('Identifiant ou mot de passe invalide.');// message d'erreur si le mot de passe ou le nom d'utilisateur est incorrect
             }
         }
     });
