@@ -33,11 +33,11 @@ fetch('http://172.29.18.254/phpmyadmin/')
     .catch(error => console.error('Erreur:', error));
 
 //tester la route de la bdd
-app.get('172.29.18.254/phpmyadmin/', (req, res) => {
+app.get('172.29.18.254/phpmyadmin/', (req, res) => {// l'url pour tester la route de la bdd
     res.send('Test de la route de la base de données'); 
 });
 //tester que le serveur fonctionne
-app.get('/test-server', (req, res) => {
+app.get('172.29.18.254/projet1ciel2/back/server.js', (req, res) => {
     res.send('Test de la route du serveur');
 });
 
