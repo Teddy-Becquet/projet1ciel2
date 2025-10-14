@@ -6,54 +6,35 @@ const cors = require('cors');// pour autoriser les requetes cross-origin
 const app = express();// initialisation de l'application express
 const port = 8080;// port d'écoute du serveur
 require('dotenv').config();// pour charger les variables d'environnement depuis un fichier .env
+module.exports = app;
+
+//vérifier la connection a la bdd
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connexion à la base de données réussie'))
+    .catch(err => console.error('Échec de la connexion à la base de données', err));
 
 // Middleware
-app.use(bodyParser.json());// pour parser les requetes en json
-app.use(cors());// pour autoriser les requetes cross-origin
-
-// Connexion à la base de données MongoDB
-mongoose.connect(process.env.bdd, { useNewUrlParser: true, useUnifiedTopology: true })// connexion a la BDD
-    .then(() => console.log('Connected to bdd'))// message de confirmation
-    .catch(err => console.error('Could not connect to bdd...', err));// message de confirmation ou d'erreur
+app.use(cors());
+app.use(bodyParser.json());
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Hellow World!');// route de test
+    res.send('Serveur en cours d\'exécution');
 });
-// Démarrage du serveur
+
+// Démarrer le serveur
 app.listen(port, () => {
-    console.log(`Server is running on http://172.29.18.254`);// message de confirmation
-});
-// Exporter l'application pour les teste
-module.exports = app;
-
-//teste
-if (require.main === module) {
-    app.listen(port, () => {
-        console.log(`Server is running on http://172.29.18.254`);
-    });
-}
-
-//login.js — front-end avec compte root
-(function() {
-    const DEMO_USER = { username: 'root', password: 'root' };
-    const SESSION_KEY = '';
-
-    function showError(msg) {
-        const el = document.getElementById('error');
-        el.textContent = msg || 'root';
-    }
-
-    function setSession(username) {
-        const token = btoa(JSON.stringify({ user: username, iat: Date.now() }));
-        localStorage.setItem(SESSION_KEY, token);
-    }
-
-    // Remplir automatiquement les champs avec le compte 
-    document.addEventListener('click', (e) => {
-        if (e.target && e.target.id === 'fill-root') {
-            document.getElementById('username').value = root.username;
-            document.getElementById('password').value = root.password;
-        }
-    });
+    console.log(`Serveur démarré sur le port ${8080}`);
 })
+// Pour tester la connection au serveur : http://172.29.18.254/phpmyadmin/
+fetch('http://172.29.18.254/phpmyadmin/')
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erreur:', error));
+
+//tester la route de la bdd
+app.get('/test-db', (req, res) => {
+    res.send('Test de la route de la base de données');
+});
+
+//
