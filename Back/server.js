@@ -1,13 +1,12 @@
 //Serveur node js  pour se connecter a la base de donnée 
 import express from 'express';
-const app = express();
 const port = 7032;
 import mysql from 'mysql';
 import fetch from 'node-fetch';
 
 
 //vérifier la connection a la bdd
-mysql.connect(process.env.mysqlI, { useNewUrlParser: true, useUnifiedTopology: true })// connection a la bdd
+mysql.bdd(process.env.mysqlI, { useNewUrlParser: true, useUnifiedTopology: true })// connection a la bdd
     .then(() => console.log('Connexion à la base de données réussie'))// message si la connection a la bdd est réussie
     .catch(err => console.error('Échec de la connexion à la base de données', err));// message si la connection a la bdd échoue
 

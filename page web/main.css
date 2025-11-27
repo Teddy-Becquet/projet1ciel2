@@ -1,0 +1,106 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1c1c; /* fond sombre */
+    color: #e0e0e0; /* texte clair */
+}
+
+/* Menu de navigation */
+.menu {
+    text-align: center;
+    background-color: #0d47a1; 
+    padding: 15px 0;
+}
+
+.menu-item {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.menu-item a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.menu-item a:hover {
+    text-decoration: underline;
+    color: #ffcc00; /* hover lumineux */
+}
+
+/* Titre principal */
+.titre-principal {
+    text-align: center;
+    background-color: #0b3d91; /* bleu très foncé */
+    padding: 40px 20px;
+}
+
+.titre-principal h1 {
+    margin: 0 0 10px 0;
+    font-size: 2em;
+    color: #ffcc00; /* jaune/or */
+}
+
+.titre-principal p {
+    margin: 0;
+    font-size: 1.2em;
+    color: #e0e0e0;
+}
+
+/* Section services */
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+/* Chaque case en blanc */
+.service {
+    background-color: #ffffff; /* case blanche */
+    color: #1c1c1c; /* texte sombre pour contraste */
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.service img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.service h2 {
+    margin: 10px 0;
+    color: #ffcc00; /* titre en jaune/or */
+}
+
+.service p {
+    font-size: 1em;
+    color: #333; /* texte plus sombre sur fond blanc */
+}
+
+/* Section contact */
+.contact {
+    background-color: #0b3d91; /* bleu foncé */
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 20px;
+}
+
+.contact h2 {
+    color: #ffcc00;
+    margin-bottom: 15px;
+}
+
+.contact p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #e0e0e0;
+}
