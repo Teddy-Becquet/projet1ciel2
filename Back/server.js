@@ -21,6 +21,12 @@ app.get('/api/test', (req, res) => {
    });      
 });
 
+app.post('/api/login', express.json(), (req, res) => {
+    const { login, password } = req.body;
+    console.log(`Login reçu : ${login}, Password reçu : ${password}`);      
+    res.json({ message: "Login reçu avec succès" });
+});
+
 //listen attends 2 paramètres : le port et une fonction anonyme callback
 app.listen(3000,   () => {
   console.log('Serveur lancé sur http://localhost:3000');
