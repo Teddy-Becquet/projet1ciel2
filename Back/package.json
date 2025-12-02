@@ -1,18 +1,16 @@
 {
-  "name": "projet1ciel2",
-  "type": "module",
+  "name": "back",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "express": "^5.1.0",
-    "mysql": "^2.18.1",
-    "node-fetch": "^3.3.2"
+    "express": "^5.2.1"
   }
 }
