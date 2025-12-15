@@ -9,9 +9,11 @@ print("✅ Tous les modules sont importés avec succès par mettez votre nom !")
 # Mini test : graphique seaborn
 data = pd.DataFrame({
 "vitesse": np.random.normal(80, 15, 100),
-"danger": np.random.choice([safe, danger], 100)
+"danger": np.random.choice([Safe, Danger], 100)
 })
 
+Safe = "Safe"
+Danger = "Danger"
 sns.boxplot(x="danger", y="vitesse", data=data)
 plt.title("Exemple graphique : vitesse selon danger")
 plt.show()
