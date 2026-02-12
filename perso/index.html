@@ -1,51 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title> Tech Solutions - IT Company</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Alarm System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <div class="menu">  
-        <div class="menu-item"><a href="#services">Our Services</a></div>
-        <div class="menu-item"><a href="#contact">Contact</a></div>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🚨 Smart Alarm System</h1>
+            <div class="connection-status">
+                <span class="status-indicator" id="connectionIndicator"></span>
+                <span id="connectionText">Déconnecté</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- État de l'alarme -->
+            <div class="alarm-card">
+                <div class="alarm-status" id="alarmStatus">
+                    <div class="status-icon" id="statusIcon">🔕</div>
+                    <div class="status-text">
+                        <h2 id="statusTitle">Alarme Désactivée</h2>
+                        <p id="statusSubtitle">L'alarme est actuellement éteinte</p>
+                    </div>
+                </div>
+
+                <!-- Contrôles -->
+                <div class="controls">
+                    <button class="btn btn-danger" id="btnOn" onclick="activateAlarm()">
+                        <span class="btn-icon">🔊</span>
+                        Activer l'alarme
+                    </button>
+                    <button class="btn btn-success" id="btnOff" onclick="deactivateAlarm()">
+                        <span class="btn-icon">🔕</span>
+                        Désactiver l'alarme
+                    </button>
+                </div>
+            </div>
+
+            <!-- Informations -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">État</div>
+                    <div class="info-value" id="infoState">OFF</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Arduino</div>
+                    <div class="info-value" id="infoArduino">172.29.19.187</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Dernière MAJ</div>
+                    <div class="info-value" id="infoLastUpdate">--:--:--</div>
+                </div>
+            </div>
+
+            <!-- Historique -->
+            <div class="history-card">
+                <h3>📝 Historique des événements</h3>
+                <div class="history-list" id="historyList">
+                    <div class="history-item">
+                        <span class="history-time">--:--:--</span>
+                        <span class="history-message">En attente de connexion...</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Projet Client/Server - TP3 SN2 - Arduino Uno + Shield Ethernet</p>
+        </footer>
     </div>
 
-    <div class="titre-principal">
-        <h1>Professional IT Services</h1>
-        <p>Reliable Solutions for Businesses and Individuals</p>
-    </div>
-
-    <div id="services" class="services">
-        <div class="service">
-            <img src="https://static.ib-formation.fr/content/uploads/2024/04/15110010/tendances-developpement-web-2024-ib-cegos-1.jpg" alt="Développement Web">
-            <h2>Web Development</h2>
-            <p>Creation of modern, responsive websites tailored to your needs.</p>
-        </div>
-
-        <div class="service">
-            <img src="https://www.rcb-informatique.fr/wp-content/uploads/2024/06/maintenance-informatique.jpeg" alt="Maintenance">
-            <h2>“IT Maintenance”</h2>
-            <p>“Technical support and maintenance to ensure the proper functioning of your equipment”.</p>
-        </div>
-
-        <div class="service">
-            <img src="https://cdn.prod.website-files.com/66153b9f3cb891501ecbf45d/663e30f7d73071214e993f20_what-is-cybersecurity.jpg" alt="Cybersécurité">
-            <h2>“Cybersecurity”</h2>
-            <p>“Protection of data and systems against cyber threats</p>
-        </div>
-    </div>
-
-    <!-- Section contact -->
-    <div id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Email : info@services-informatique.fr</p>
-        <p>Phone: +33 6 12 34 56 78</p>
-    </div>
-
+    <script src="app.js"></script>
 </body>
 </html>

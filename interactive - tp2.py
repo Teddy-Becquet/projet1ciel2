@@ -1,0 +1,1 @@
+print(f"maVariable: {maVariable}\nMACONSTANTE: {MACONSTANTE}")
